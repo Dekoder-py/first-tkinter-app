@@ -3,19 +3,24 @@ from tkinter import ttk
 
 def greet() -> None:
     """print a greeting"""
-    print("Hello world!")
+    print(f"Hello {user_name.get().title() or "World"}!")
 
 
 root = tk.Tk()
 
-# change theme to make it work like it should (i.e. how it works on windows)
-s = ttk.Style()
-s.theme_use("clam")
+user_name = tk.StringVar()
+
+name_label = ttk.Label(root, text="Name: ")
+name_label.pack(side="left")
+name_entry = ttk.Entry(root, width=15, textvariable=user_name)
+name_entry.pack(side="left")
+name_entry.focus()
+
 
 greet_button = ttk.Button(root, text="Greet", command=greet)
-greet_button.pack(side="top", fill="both", expand=True)
+greet_button.pack(side="left")
 
 quit_button = ttk.Button(root, text="Quit", command=root.destroy)
-quit_button.pack(side="top", fill="both", expand=True)
+quit_button.pack(side="right")
 
 root.mainloop()
