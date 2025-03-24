@@ -3,7 +3,7 @@ from tkinter import ttk
 
 def greet() -> None:
     """print a greeting"""
-    print(f"Hello {user_name.get().title() or "World"}!")
+    print(f"Hello {user_name.get().title() or "World"}!")  # prints Hello and the user's name or hello world when no name is provided
 
 
 root = tk.Tk()
